@@ -17,7 +17,8 @@ async function authToken(req, res, next) {
         if (err) {
             return res.status(403).send('Invalid or expired token');
         }
- 
+
+        req.token = token;
         req.user = user;
         next();
     });
