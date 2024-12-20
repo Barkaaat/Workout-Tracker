@@ -54,7 +54,6 @@ async function login (req, res) {
 
 async function logout(req, res) {
     try {
-        console.log(req.token.length);
         await mysql.query('insert into blackList (token) values (?)', [req.token]);
         res.status(200).send('You logged out');
     } catch (err) {
